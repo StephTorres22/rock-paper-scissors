@@ -20,7 +20,9 @@
         1st problem. random, generation of options for comp.
         Do you declare an array with the options, take one at random, a bit like word app*/
 
-        const gameOptions = ["Rock", "Paper", "Scissors"]
+        const gameOptions = ["Rock", "Paper", "Scissors"];
+        const computerSelection = computerPlay();
+        
 
         function computerPlay(){
 
@@ -33,9 +35,32 @@
 
         function playRound(playerSelection, computerSelection){
 
+            
+
             /*
-            Uses computerPlay() as computerSelection paramter
-            Must evaluate 
+            Uses computerPlay() as computerSelection paramter, but doesn't change each time playRound() is called.
+            Must evaluate Rock > Scissors, Paper > Rock, Scissors > Paper, and know which option was picked by which party.
+            Lots of logical && or ||
+
+            long if else statements
+
+            */
+           if (playerSelection == 'Rock' && computerSelection == 'Paper'){
+               return 'Sorry, you lose, Paper beats Rock'}
+               else if(playerSelection == 'Scissors' && computerSelection == 'Rock'){
+                   return 'Sorry, you lose, Rock beats Scissors'
+               } else if(playerSelection == 'Paper' && computerSelection == 'Scissors'){
+                   return 'Sorry, you lose, Scissors beats Paper'
+               } else if(playerSelection == 'Rock' && computerSelection == 'Scissors'){
+                   return 'Well done you win, Rock beats Scissors'
+               } else if(playerSelection == 'Scissors' && computerSelection == 'Paper'){
+                   return 'Well done you win, Scissors beats Paper'
+               } else if(playerSelection == 'Paper' && computerSelection == 'Rock'){
+                   return 'Well done you win, Paper beats Rock'
+               }
+
+               //how do you make it case sensitive?
+
         }
     
 
