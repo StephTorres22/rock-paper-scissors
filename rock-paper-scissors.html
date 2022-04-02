@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rock, Paper, Scissors</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+        
+        /* Game is to be played against the computer. So need a note for the computer choice, and a way for the user to input a choice.
+        Need to tell program that:
+        1. Rock is greater than scissors
+        2. Scissors is greater than paper,
+        3. Paper is greater than rock.
+        4. A match is equal.
+
+        computerPlay() function needs to produce a random result of the three options to be compared against a user choice.
+        computer choice should only be known at comparison outcome.
+
+        1st problem. random, generation of options for comp.
+        Do you declare an array with the options, take one at random, a bit like word app*/
+
+        const gameOptions = ["Rock", "Paper", "Scissors"]
+
+        function computerPlay(){
+
+            return gameOptions[Math.floor(Math.random() * gameOptions.length)];
+            //Math.random() generates a random number between 0-1, it will be a decimal, 
+            //multiply by the array length, in this case 3, now become random between 0 - 3.
+            //Math.floor, rounds this down to the nearest whole number
+            // does this method mean that 3 is the least likely to be called....?
+        }
+
+        function playRound(playerSelection, computerSelection){
+
+            /*
+            Uses computerPlay() as computerSelection paramter
+            Must evaluate 
+        }
+    
+
+
+    
+        </script>
+    </body>
+</html>
