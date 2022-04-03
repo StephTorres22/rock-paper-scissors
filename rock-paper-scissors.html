@@ -20,8 +20,13 @@
         1st problem. random, generation of options for comp.
         Do you declare an array with the options, take one at random, a bit like word app*/
 
-        const gameOptions = ["Rock", "Paper", "Scissors"];
-        const computerSelection = computerPlay();
+        const gameOptions = ["rock", "paper", "scissors"];
+        
+        var computerScore = 0;
+        var userScore = 0;
+        
+       
+
         
 
         function computerPlay(){
@@ -37,6 +42,8 @@
 
             
 
+
+
             /*
             Uses computerPlay() as computerSelection paramter, but doesn't change each time playRound() is called.
             Must evaluate Rock > Scissors, Paper > Rock, Scissors > Paper, and know which option was picked by which party.
@@ -44,24 +51,60 @@
 
             long if else statements
 
-            */
-           if (playerSelection == 'Rock' && computerSelection == 'Paper'){
-               return 'Sorry, you lose, Paper beats Rock'}
-               else if(playerSelection == 'Scissors' && computerSelection == 'Rock'){
-                   return 'Sorry, you lose, Rock beats Scissors'
-               } else if(playerSelection == 'Paper' && computerSelection == 'Scissors'){
-                   return 'Sorry, you lose, Scissors beats Paper'
-               } else if(playerSelection == 'Rock' && computerSelection == 'Scissors'){
-                   return 'Well done you win, Rock beats Scissors'
-               } else if(playerSelection == 'Scissors' && computerSelection == 'Paper'){
-                   return 'Well done you win, Scissors beats Paper'
-               } else if(playerSelection == 'Paper' && computerSelection == 'Rock'){
-                   return 'Well done you win, Paper beats Rock'
+            */         
+
+            
+           if (playerSelection == 'rock' && computerSelection == 'paper'){
+               computerScore +=1;
+               return 'Sorry, you lose this round, Paper beats Rock'}
+               else if(playerSelection == 'scissors' && computerSelection == 'rock'){
+                   computerScore +=1;
+                   console.log('Sorry, you lose this round, Rock beats Scissors')
+               } else if(playerSelection == 'paper' && computerSelection == 'scissors'){
+                   computerScore +=1;
+                   console.log('Sorry, you lose this round, Scissors beats Paper')
+               } else if(playerSelection == 'rock' && computerSelection == 'scissors'){
+                   userScore +=1;
+                   console.log('Well done you win this round, Rock beats Scissors')
+               } else if(playerSelection == 'scissors' && computerSelection == 'paper'){
+                   userScore +=1;
+                   console.log('Well done you win this round, Scissors beats Paper')
+               } else if(playerSelection == 'paper' && computerSelection == 'rock'){
+                   userScore +=1;
+                   console.log('Well done you win this round, Paper beats Rock')
+               } else if(playerSelection == computerSelection){
+                   console.log('You both chose the same thing, this round is a draw.')
                }
+            }
 
-               //how do you make it case sensitive?
+            
 
-        }
+               //how do you make it case sensitive?       
+
+       
+
+        function game(){
+
+            
+            for (let i = 0; i<=5; i++){
+             const playerSelection = prompt('Rock, Paper, or Scissors').toLowerCase();
+             const computerSelection = computerPlay();
+             playRound(playerSelection, computerSelection);
+            if (i == 5 && userScore < computerScore){
+                console.log('Unlucky, the computer beat you, the score was:' + userScore + ' to ' + computerScore); 
+            } else if (i == 5 && userScore > computerScore){
+                console.log('Well done, you beat the computer, the score was:' + userScore + ' to ' + computerScore);
+            } //using console.log instead of return to see what's happening
+                
+            
+               }    
+            }
+               
+
+                
+            
+        
+    
     
 
 
