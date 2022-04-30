@@ -7,7 +7,11 @@
         const scissorsButton = document.querySelector('#scissorsButton');
 
         const results = document.querySelector('.results');
+
+        const computerChoice = document.createElement('p');
+        results.appendChild(computerChoice);
         const resultText = document.createElement('p');
+
         results.appendChild(resultText);
         resultText.textContent = '';
 
@@ -34,6 +38,8 @@
 
         function playRound(playerSelection, computerSelection){  
 
+            let computerChoiceText = 'The Computer chose '
+
            
             
             computerSelection = computerPlay();           
@@ -41,23 +47,30 @@
 
            if (playerSelection == 'rock' && computerSelection == 'paper'){
                computerScore +=1;
+               computerChoice.textContent = computerChoiceText + computerSelection + '.';
                resultText.textContent = 'Sorry you lose this round, Paper beats Rock.';
            }else if(playerSelection == 'scissors' && computerSelection == 'rock'){
                    computerScore +=1;
-                   resultText.textContent = 'Sorry, you lose this round, Rock beats Scissors';
+                   computerChoice.textContent = computerChoiceText + computerSelection + '.';
+                   resultText.textContent = 'Sorry, you lose this round, Rock beats Scissors.';
                } else if(playerSelection == 'paper' && computerSelection == 'scissors'){
                    computerScore +=1;
-                   resultText.textContent = 'Sorry, you lose this round, Scissors beats Paper'
+                   computerChoice.textContent = computerChoiceText + computerSelection + '.';
+                   resultText.textContent = 'Sorry, you lose this round, Scissors beats Paper.';
                } else if(playerSelection == 'rock' && computerSelection == 'scissors'){
                    userScore +=1;
-                   resultText.textContent = 'Well done you win this round, Rock beats Scissors';
+                   computerChoice.textContent = computerChoiceText + computerSelection + '.';
+                   resultText.textContent = 'Well done you win this round, Rock beats Scissors.';
                } else if(playerSelection == 'scissors' && computerSelection == 'paper'){
                    userScore +=1;
-                   resultText.textContent = 'Well done you win this round, Scissors beats Paper';
+                   computerChoice.textContent = computerChoiceText + computerSelection + '.';
+                   resultText.textContent = 'Well done you win this round, Scissors beats Paper.';
                } else if(playerSelection == 'paper' && computerSelection == 'rock'){
                    userScore +=1;
-                   resultText.textContent = 'Well done you win this round, Paper beats Rock';
+                   computerChoice.textContent = computerChoiceText + computerSelection + '.';
+                   resultText.textContent = 'Well done you win this round, Paper beats Rock.';
                } else if(playerSelection == computerSelection){
+                computerChoice.textContent = computerChoiceText + computerSelection + '.';
                    resultText.textContent = 'You both chose the same thing, this round is a draw.';
                }
 
@@ -99,6 +112,7 @@
 
             function clearResultText(){
 
+                computerChoice.textContent = '';
                 resultText.textContent = '';
                 scoreText.textContent = '';
                 
@@ -112,7 +126,7 @@
                     resultText.textContent = 'Well done, you beat the computer, first to five.';
                     scoreText.textContent = 'The final score is: Player ' + userScore + ', Computer ' + computerScore;
                     playAgain.textContent = 'Would you like to play again?'
-                    //removerClickListener();
+                    removerChoice();
                     resetScore();
                     
                     
@@ -120,7 +134,7 @@
                     resultText.textContent = 'Unlucky, the computer beat you this game.';
                     scoreText.textContent = 'The final score is: Player ' + userScore + ', Computer ' + computerScore;
                     playAgain.textContent = 'Would you like to play again?';
-                    //removerClickListener();
+                    removerChoice();
                     resetScore();
                 }
 
@@ -128,6 +142,7 @@
 
             function resetScore(){
 
+                const buttons = document.querySelector('.buttons');
                 const resetButton = document.createElement('button');
                 results.appendChild(resetButton);
                 resetButton.textContent = 'Clear scores, play again!';
@@ -135,12 +150,14 @@
 
                 userScore = 0;
                 computerScore = 0;
-                resultText.textContent = '';
-                scoreText.textContent = '';
+                clearResultText();
                 playAgain.textContent = '';
                 playerSelection = '';
                 computerSelection = '';
                 results.removeChild(resetButton);
+                buttons.appendChild(rockButton);
+                buttons.appendChild(paperButton);
+                buttons.appendChild(scissorsButton);
                  
                 })
             }
@@ -152,13 +169,16 @@
                 
             }
 
-            /*function removerClickListener(){
-                rockButton.removeEventListener('click', playRound);
-                paperButton.removeEventListener('click', playRound);
-                scissorsButton.removeEventListener('click', playRound);
+            //need to figuer out how to disable button clicks.
 
+            function removerChoice(){
+
+               rockButton.parentNode.removeChild(rockButton);
+               scissorsButton.parentNode.removeChild(scissorsButton);
+               paperButton.parentNode.removeChild(paperButton);//this makes the buttons disappear, but how do i get them back.
+              
             }
-           for (let i = 0; i<=5; i++){ 
+        /*   for (let i = 0; i<=5; i++){ 
 
                        
                 
