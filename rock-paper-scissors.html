@@ -5,18 +5,61 @@
         <meta charset="UTF-8">
         <script src="./script.js" defer></script>
     </head>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;       
+            
+            
+            
+        }
+        .results{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+
+        button{
+
+            margin: 18px;
+        }
+
+        .buttons{
+
+            display: flex;
+        }
+
+        h2, h3{
+            margin-bottom: 0px;
+        }
+
+        p{
+            margin-bottom: 0px;
+        }
+        
+
+        
+    </style>
+
     <body>
 
         <h2>Let's play Rock, Paper, Scissors!</h2>
+        <h3>First to five.</h3>
 
         <h3>Pick an option</h3>
 
-        
+        <div class="buttons">
             <button id="rockButton">Rock</button>
 
             <button id="paperButton">Paper</button>
 
             <button id="scissorsButton">Scissors</button>
+        </div>    
         
 
         <div class="results">
@@ -26,4 +69,6 @@
     
        
     </body>
+
+    
 </html>
